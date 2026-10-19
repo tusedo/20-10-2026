@@ -19,10 +19,10 @@
   const gauss = () => (rnd() + rnd() + rnd() - 1.5) / 1.5;
 
   const LAYERS = [
-    { n: 8, off: 0,            L: 1.00, W: 0.30, curl:  0.06, w: 0.23, hue: 0, a: 0.85 },
-    { n: 8, off: Math.PI / 8,  L: 0.82, W: 0.27, curl: -0.05, w: 0.185, hue: 0, a: 0.8 },
-    { n: 8, off: 0,            L: 0.62, W: 0.22, curl:  0.05, w: 0.15, hue: 1, a: 0.95 },
-    { n: 5, off: Math.PI / 5,  L: 0.42, W: 0.17, curl: -0.04, w: 0.11, hue: 0, a: 1.0 }
+    { n: 8, off: 0, L: 1.00, W: 0.30, curl: 0.06, w: 0.23, hue: 0, a: 0.85 },
+    { n: 8, off: Math.PI / 8, L: 0.82, W: 0.27, curl: -0.05, w: 0.185, hue: 0, a: 0.8 },
+    { n: 8, off: 0, L: 0.62, W: 0.22, curl: 0.05, w: 0.15, hue: 1, a: 0.95 },
+    { n: 5, off: Math.PI / 5, L: 0.42, W: 0.17, curl: -0.04, w: 0.11, hue: 0, a: 1.0 }
   ];
   const petalW = (u, Ww) => Ww * Math.pow(Math.sin(Math.PI * Math.pow(u, 0.7)), 0.9);
 
@@ -60,9 +60,9 @@
         const m = rnd();
         const mode = m < 0.62 ? 0 : m < 0.84 ? 1 : 2;
         [px, py] = petalPoint(Ly, mode);
-        if (mode === 0)      { h = Ly.hue; al = Ly.a * (0.6 + rnd() * 0.4); j = 0.0045; }
-        else if (mode === 1) { h = 1;      al = 0.10 + rnd() * 0.14;        j = 0.0; }
-        else                 { h = Ly.hue; al = 0.35 + rnd() * 0.3;         j = 0.003; }
+        if (mode === 0) { h = Ly.hue; al = Ly.a * (0.6 + rnd() * 0.4); j = 0.0045; }
+        else if (mode === 1) { h = 1; al = 0.10 + rnd() * 0.14; j = 0.0; }
+        else { h = Ly.hue; al = 0.35 + rnd() * 0.3; j = 0.003; }
       } else if (g < 0.735) {
         const th = rnd() * TAU, r = 0.18 + Math.pow(rnd(), 1.6) * 0.55;
         px = Math.cos(th) * r; py = Math.sin(th) * r;
@@ -160,7 +160,7 @@
   let canSecondClick = false; // chặn click lọt từ lần 1
   const COLORS = ["rgba(236,228,255,", "rgba(170,120,255,", "rgba(255,236,170,"];
   const easeOut = t => 1 - (1 - t) * (1 - t);
-  const easeIn  = t => t * t;
+  const easeIn = t => t * t;
 
   function startBurst() {
     galaxyFade = true;
@@ -201,7 +201,7 @@
       audio.currentTime = 0;
       audio.loop = true; // lặp lại
       const p = audio.play();
-      if (p && typeof p.catch === "function") p.catch(function () {});
+      if (p && typeof p.catch === "function") p.catch(function () { });
     }
 
     setTimeout(() => {
@@ -496,7 +496,7 @@ window.initChuroi = function () {
     a.loop = true;
     if (a.paused) {
       var p = a.play();
-      if (p && typeof p.catch === "function") p.catch(function () {});
+      if (p && typeof p.catch === "function") p.catch(function () { });
     }
   })();
 
@@ -504,22 +504,46 @@ window.initChuroi = function () {
     anhNut: "images/icon/mewmew.gif",
     titulo: "",
     frases: [
-      " Như bông hoa tím, anh luôn ngưỡng mộ em",
-      " Cảm ơn em vì luôn là bình yên của anh",
-      " Ở bên em, điều giản dị cũng tỏa sáng",
-      " Hôm nay, sắc tím mang tên em",
-      " Bông hoa này nhắc nhở em tuyệt vời nhường nào",
-      " Tình cảm của em là nơi anh trân trọng nhất",
-      " 20 tháng 10, luôn bên em",
-      " Một đóa hoa tím cho người thắp sáng ngày của anh",
-      " Cảm ơn em vì đã luôn ở lại"
+      "Em là đóa hoa đẹp nhất trong lòng anh",
+      "Chúc em 20/10 luôn xinh đẹp và rạng rỡ",
+      "Cảm ơn em đã xuất hiện trong cuộc đời anh",
+      "Mong nụ cười em luôn rạng rỡ như hôm nay",
+      "Với anh, em luôn là điều đặc biệt nhất",
+      "Anh mong mình sẽ cùng nhau đi qua thật nhiều mùa hoa",
+      "20/10 này và cả những ngày sau, anh vẫn thương em",
+      "Tặng em một đóa hoa, gửi em cả tấm lòng anh",
+      "Mong anh luôn là người khiến em cảm thấy hạnh phúc",
+      "Cảm ơn em đã cho anh thêm cơ hội để được thương em nhiều"
     ],
     fotos: [
       "images/anh/anh1.jpg",
       "images/anh/anh2.jpg",
       "images/anh/anh3.jpg",
       "images/anh/anh4.jpg",
-      "images/anh/anh5.jpg"
+      "images/anh/anh5.jpg",
+      "images/anh/anh6.jpg",
+      "images/anh/anh7.jpg",
+      "images/anh/anh8.jpg",
+      "images/anh/anh9.jpg",
+      "images/anh/anh10.jpg",
+      "images/anh/anh11.jpg",
+      "images/anh/anh12.jpg",
+      "images/anh/anh13.jpg",
+      "images/anh/anh14.jpg",
+      "images/anh/anh15.jpg",
+      "images/anh/anh16.jpg",
+      "images/anh/anh17.jpg",
+      "images/anh/anh18.jpg",
+      "images/anh/anh19.jpg",
+      "images/anh/anh20.jpg",
+      "images/anh/anh21.jpg",
+      "images/anh/anh22.jpg",
+      "images/anh/anh23.jpg",
+      "images/anh/anh24.jpg",
+      "images/anh/anh25.jpg",
+      "images/anh/anh26.jpg",
+      "images/anh/anh27.jpg"
+
     ],
     // Đường dẫn nhạc: chỉ cần sửa chỗ này (file mp3 của bạn)
     musica: "./images/audio/nhac.mp3"
@@ -581,7 +605,7 @@ window.initChuroi = function () {
     a.loop = true;
     if (a.paused) {
       var p = a.play();
-      if (p && typeof p.catch === "function") p.catch(function () {});
+      if (p && typeof p.catch === "function") p.catch(function () { });
     }
   }
 
@@ -804,7 +828,7 @@ window.initChuroi = function () {
     }
   }
   if (document.fonts && document.fonts.load) {
-    document.fonts.load("40px 'Mali'").catch(function () {}).then(buildWords);
+    document.fonts.load("40px 'Mali'").catch(function () { }).then(buildWords);
   } else {
     setTimeout(buildWords, 200);
   }
